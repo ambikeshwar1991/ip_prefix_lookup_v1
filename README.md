@@ -27,3 +27,14 @@ cd ip_prefix_lookup_v1
 ```bash
 docker-compose up -d --build
 ```
+
+### To test the endpoints  
+```bash
+curl -X GET "http://127.0.0.1:8000/api/v1/"
+
+curl -X GET "http://127.0.0.1:8000/api/v1/lookup/184.51.33.231"
+
+curl -X POST "http://127.0.0.1:8000/api/v1/lookup/batch" \
+     -H "Content-Type: application/json" \
+     -d '{"ips": ["13.124.199.50", "184.51.33.231"]}'
+```
