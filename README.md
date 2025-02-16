@@ -23,7 +23,7 @@ git clone https://github.com/ambikeshwar1991/ip_prefix_lookup_v1
 cd ip_prefix_lookup_v1
 ```
 
-### 🔹 Build and start the container  
+### Build and start the container  
 ```bash
 docker-compose up -d --build
 ```
