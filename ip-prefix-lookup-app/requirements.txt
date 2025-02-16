@@ -1,0 +1,7 @@
+fastapi
+httpx
+psutil
+pytest
+pytest-cov
+pytest-mock
+uvicorn

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: ip-prefix-lookup-app
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - ./logs:/app/logs
+      - ./ip-prefix-lookup-app/data:/app/data
+
+
