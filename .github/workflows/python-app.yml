@@ -1,0 +1,34 @@
+name: Run Tests & Coverage
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🔧 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r ip-prefix-lookup-app/requirements.txt
+
+    - name: Run Tests with Coverage
+      run: |
+        source venv/bin/activate
+        pytest --cov=app --cov-report=term-missing --cov-fail-under=90
